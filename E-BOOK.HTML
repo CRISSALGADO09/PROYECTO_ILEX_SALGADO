@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Peter Pan - Welcome to Neverland</title>
+
+    <style>
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #061426;
+            color: white;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            padding: 20px 60px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(3, 12, 27, 0.80);
+
+            backdrop-filter: blur(8px);
+
+            z-index: 1000;
+        }
+
+        nav h2 {
+            color: #f4d27a;
+            font-size: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #f4d27a;
+        }
+
+
+        /* =========================
+           HOME
+        ========================= */
+
+        .hero {
+            height: 100vh;
+
+            background-image:
+                linear-gradient(
+                    rgba(3, 10, 25, 0.35),
+                    rgba(3, 10, 25, 0.70)
+                ),
+                url("home.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+
+            padding-left: 10%;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .small-title {
+            color: #f4d27a;
+            font-size: 18px;
+            letter-spacing: 6px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 85px;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+
+            margin-top: 30px;
+            padding: 14px 30px;
+
+            background-color: #f4d27a;
+            color: #061426;
+
+            text-decoration: none;
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background-color: white;
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           STORY
+        ========================= */
+
+        #story {
+            background-color: #061426;
+        }
+
+
+        /* =========================
+           CHARACTERS
+        ========================= */
+
+        #characters {
+            background-color: #081b32;
+        }
+
+        .characters-container {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .character {
+            width: 220px;
+
+            padding: 25px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border: 1px solid rgba(255, 255, 255, 0.10);
+
+            border-radius: 15px;
+
+            transition: 0.3s;
+        }
+
+        .character:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.13);
+        }
+
+        .character h3 {
+            color: #f4d27a;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+
+        /* =========================
+           NEVERLAND
+        ========================= */
+
+        #neverland {
+            background-color: #061426;
+        }
+
+
+        /* =========================
+           PROGRAMMING
+        ========================= */
+
+        #programming {
+            background-color: #071a30;
+        }
+
+        .code-box {
+            margin-top: 35px;
+
+            max-width: 650px;
+
+            padding: 25px;
+
+            background-color: #020812;
+
+            border-radius: 12px;
+
+            border: 1px solid #183653;
+
+            overflow-x: auto;
+        }
+
+        .code-box pre {
+            color: #8ed1ff;
+
+            font-family: Consolas, monospace;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           HOW IT WAS MADE
+        ========================= */
+
+        #how-it-was-made {
+            background-color: #081b32;
+        }
+
+        .steps-container {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .step {
+            width: 230px;
+
+            padding: 25px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border: 1px solid rgba(255, 255, 255, 0.10);
+
+            border-radius: 15px;
+
+            transition: 0.3s;
+        }
+
+        .step:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.13);
+        }
+
+        .step h3 {
+            color: #f4d27a;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .example-code {
+            margin-top: 40px;
+
+            max-width: 700px;
+
+            padding: 25px;
+
+            background-color: #020812;
+
+            border-radius: 12px;
+
+            border: 1px solid #183653;
+
+            overflow-x: auto;
+        }
+
+        .example-code pre {
+            color: #8ed1ff;
+
+            font-family: Consolas, monospace;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        section {
+            min-height: 70vh;
+            padding: 110px 10%;
+        }
+
+        section h2 {
+            color: #f4d27a;
+
+            font-size: 45px;
+
+            margin-bottom: 25px;
+        }
+
+        section p {
+            max-width: 800px;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            color: #dddddd;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px;
+
+            text-align: center;
+
+            background-color: #020812;
+
+            color: #999;
+        }
+
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 15px 25px;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .hero {
+                padding-left: 8%;
+                padding-right: 8%;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 90px 8%;
+            }
+
+            section h2 {
+                font-size: 35px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <h2>Neverland</h2>
+
+        <ul>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#story">The Story</a>
+            </li>
+
+            <li>
+                <a href="#characters">Characters</a>
+            </li>
+
+            <li>
+                <a href="#neverland">Neverland</a>
+            </li>
+
+            <li>
+                <a href="#programming">Programming</a>
+            </li>
+
+            <li>
+                <a href="#how-it-was-made">How It Was Made</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- Home -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                WELCOME TO
+            </p>
+
+            <h1>
+                NEVERLAND
+            </h1>
+
+            <p>
+                A magical world where imagination
+                has no limits and growing up
+                is not the only option.
+            </p>
+
+            <a href="#story" class="button">
+                Explore Neverland
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- The Story -->
+
+    <section id="story">
+
+        <h2>
+            The Story
+        </h2>
+
+        <p>
+            Peter Pan is a boy who lives in Neverland,
+            a magical place where children can have
+            adventures, explore new places and never
+            have to grow up.
+        </p>
+
+        <br>
+
+        <p>
+            One night, Peter Pan meets Wendy Darling
+            and takes her and her brothers to Neverland.
+            Together, they experience adventures,
+            meet magical characters and face
+            Captain Hook.
+        </p>
+
+    </section>
+
+
+    <!-- Characters -->
+
+    <section id="characters">
+
+        <h2>
+            Characters
+        </h2>
+
+        <div class="characters-container">
+
+
+            <article class="character">
+
+                <h3>
+                    Peter Pan
+                </h3>
+
+                <p>
+                    A brave and adventurous boy who
+                    never wants to grow up.
+                </p>
+
+            </article>
+
+
+            <article class="character">
+
+                <h3>
+                    Wendy Darling
+                </h3>
+
+                <p>
+                    A curious girl who discovers the
+                    magical world of Neverland.
+                </p>
+
+            </article>
+
+
+            <article class="character">
+
+                <h3>
+                    Tinker Bell
+                </h3>
+
+                <p>
+                    A magical fairy and one of
+                    Peter Pan's closest friends.
+                </p>
+
+            </article>
+
+
+            <article class="character">
+
+                <h3>
+                    Captain Hook
+                </h3>
+
+                <p>
+                    A pirate captain who is
+                    Peter Pan's main enemy.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- Neverland -->
+
+    <section id="neverland">
+
+        <h2>
+            Neverland
+        </h2>
+
+        <p>
+            Neverland is a mysterious island full
+            of pirates, fairies, adventures and
+            magical places.
+        </p>
+
+        <br>
+
+        <p>
+            It represents imagination, freedom
+            and the desire to keep childhood
+            alive.
+        </p>
+
+    </section>
+
+
+    <!-- Programming -->
+
+    <section id="programming">
+
+        <h2>
+            Peter Pan & Programming
+        </h2>
+
+        <p>
+            Programming allows us to turn ideas
+            and imagination into something real.
+            In this project, HTML is used to create
+            a digital version of Neverland.
+        </p>
+
+
+        <div class="code-box">
+
+<pre>
+&lt;h1&gt;Welcome to Neverland&lt;/h1&gt;
+
+&lt;p&gt;
+Peter Pan never wants to grow up.
+&lt;/p&gt;
+</pre>
+
+        </div>
+
+    </section>
+
+
+    <!-- How It Was Made -->
+
+    <section id="how-it-was-made">
+
+        <h2>
+            How I Created This Website
+        </h2>
+
+        <p>
+            I created this website using HTML and CSS.
+            I used HTML to organize the information
+            and CSS to design the appearance of the page.
+        </p>
+
+
+        <div class="steps-container">
+
+
+            <article class="step">
+
+                <h3>
+                    1. HTML
+                </h3>
+
+                <p>
+                    HTML creates the structure of the
+                    website, such as headings, paragraphs,
+                    sections, buttons and links.
+                </p>
+
+            </article>
+
+
+            <article class="step">
+
+                <h3>
+                    2. CSS
+                </h3>
+
+                <p>
+                    CSS controls the design. I used it
+                    to add colors, backgrounds, spacing,
+                    sizes and different visual effects.
+                </p>
+
+            </article>
+
+
+            <article class="step">
+
+                <h3>
+                    3. Sections
+                </h3>
+
+                <p>
+                    I divided the website into different
+                    sections to organize the information
+                    about Peter Pan and Neverland.
+                </p>
+
+            </article>
+
+
+            <article class="step">
+
+                <h3>
+                    4. Navigation
+                </h3>
+
+                <p>
+                    The navigation menu uses links that
+                    take the user directly to different
+                    sections of the website.
+                </p>
+
+            </article>
+
+
+        </div>
+
+
+        <div class="example-code">
+
+<pre>
+&lt;h1&gt;Welcome to Neverland&lt;/h1&gt;
+
+&lt;p&gt;
+A magical world where imagination has no limits.
+&lt;/p&gt;
+</pre>
+
+        </div>
+
+
+        <br>
+
+        <p>
+            The first line creates the main heading
+            of the page. The second part creates a
+            paragraph with information for the user.
+        </p>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            Peter Pan Project | English & Programming
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
